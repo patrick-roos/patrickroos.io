@@ -16,18 +16,18 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f8f8ff;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #f4f0ff;
+  --surface-2: #fcfbff;
   --text: #161124;
-  --muted: #5d4e78;
-  --line: #d8cdf1;
-  --accent: #6d3fd1;
-  --accent-soft: #7d52dc;
-  --bg-glow-1: rgba(109, 63, 209, 0.13);
-  --bg-glow-2: rgba(109, 63, 209, 0.09);
-  --hover-line: #8f6bdd;
-  --code-bg: #f1edff;
+  --muted: #6d637f;
+  --line: #ece6f7;
+  --accent: #6b3bd2;
+  --accent-soft: #6b3bd2;
+  --bg-glow-1: rgba(0, 0, 0, 0);
+  --bg-glow-2: rgba(0, 0, 0, 0);
+  --hover-line: #c7b8e8;
+  --code-bg: #f7f5fc;
 }
 
 * {
@@ -172,8 +172,11 @@ ul {
 }
 
 .socials {
-  padding: 0 0 1.4rem;
   display: flex;
+}
+
+.under-photo {
+  padding-top: 0.8rem;
 }
 
 .social-icon {
@@ -212,6 +215,10 @@ ul {
 
 .card:hover {
   border-color: var(--hover-line);
+}
+
+:root[data-theme="light"] .card {
+  background: #ffffff;
 }
 
 .meta {
@@ -281,5 +288,9 @@ ul {
   .hero-media {
     max-width: 220px;
     justify-self: start;
+  }
+
+  .under-photo {
+    padding-top: 0.65rem;
   }
 }
