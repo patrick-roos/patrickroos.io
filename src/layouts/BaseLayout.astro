@@ -41,20 +41,53 @@ const imageUrl = new URL(image, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <link rel="alternate" type="application/rss+xml" title="Patrick Roos RSS" href="/rss.xml" />
+    <script is:inline>
+      (() => {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <main class="container">
       <header class="site-header">
         <a href="/" class="name">Patrick Roos</a>
-        <nav>
-          <a href="/posts/">Posts</a>
-          <a href="/publications/">Publications</a>
-        </nav>
+        <div class="header-controls">
+          <nav>
+            <a href="/posts/">Posts</a>
+            <a href="/publications/">Publications</a>
+          </nav>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+            Theme
+          </button>
+        </div>
       </header>
       <slot />
       <footer class="site-footer">
         <p>© {new Date().getFullYear()} Patrick Roos</p>
       </footer>
     </main>
+    <script is:inline>
+      (() => {
+        const button = document.getElementById('theme-toggle');
+        if (!button) return;
+
+        const setButtonText = (theme) => {
+          button.textContent = theme === 'light' ? 'Dark' : 'Light';
+        };
+
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        setButtonText(currentTheme);
+
+        button.addEventListener('click', () => {
+          const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+          setButtonText(theme);
+        });
+      })();
+    </script>
   </body>
 </html>
