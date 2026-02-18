@@ -103,16 +103,13 @@ ul {
 .hero {
   padding: 2.2rem 0 2rem;
   display: grid;
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: 1fr 220px;
   gap: 1.5rem;
   align-items: start;
 }
 
 .hero-media {
-  background: linear-gradient(160deg, #141414, #0d0d0d);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 0.65rem;
+  justify-self: end;
 }
 
 .profile-photo {
@@ -120,9 +117,8 @@ ul {
   height: auto;
   max-height: 320px;
   display: block;
-  border-radius: 8px;
+  border-radius: 4px;
   object-fit: contain;
-  background: #070707;
 }
 
 .list {
@@ -207,5 +203,6 @@ ul {
 
   .hero-media {
     max-width: 220px;
+    justify-self: start;
   }
 }
