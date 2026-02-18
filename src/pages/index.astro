@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const latestPosts = posts.slice(0, 5);
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Patrick Roos',
+  url: 'https://patrickroos.io/',
+  image: 'https://patrickroos.io/images/patrick-roos.jpg',
+  alumniOf: 'University of Maryland',
+  knowsAbout: ['Artificial Intelligence', 'Machine Learning', 'Data Science']
+};
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)} />
+  </Fragment>
+
+  <section class="hero">
+    <img src="/images/patrick-roos.jpg" alt="Patrick Roos" width="120" height="120" />
+    <div class="stack">
+      <h1>Patrick Roos</h1>
+      <p>
+        I’m a computer scientist and founder of Gnomish Enterprises (better, not bigger), a
+        technology company building software services and applications.
+      </p>
+      <p>
+        Previously I was Director of Machine Learning at
+        <a href="https://www.theknotww.com/" rel="noreferrer noopener" target="_blank">
+          The Knot Worldwide
+        </a>, and Chief Data Scientist at
+        <a href="https://zdatainc.com/" rel="noreferrer noopener" target="_blank">zData</a>
+        (Atos/Eviden).
+      </p>
+      <p>
+        Before industry, I did research at the
+        <a href="https://www.cancer.gov/" rel="noreferrer noopener" target="_blank">
+          National Cancer Institute
+        </a>
+        and in the AI Group at the
+        <a href="https://www.cs.umd.edu/" rel="noreferrer noopener" target="_blank">
+          University of Maryland
+        </a>, where I earned my Ph.D. and M.S. in Computer Science.
+      </p>
+      <p>
+        I grew up in Bavaria, Germany and became a U.S. citizen after living in the U.S. for about
+        half my life. Outside work, I spend a lot of time training Muay Thai.
+      </p>
+    </div>
+  </section>
+
+  <section class="stack" style="padding-bottom: 2rem;">
+    <h2>Posts</h2>
+    <ul class="list">
+      {latestPosts.map((post) => (
+        <li class="card">
+          <h3><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h3>
+          <p class="meta">{post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</p>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

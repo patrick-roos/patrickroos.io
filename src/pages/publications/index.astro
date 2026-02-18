@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import publications from '../../data/publications.json';
+
+const sorted = publications.sort((a, b) => b.year - a.year);
+---
+
+<BaseLayout
+  title="Publications"
+  description="Academic and research publications by Patrick Roos in reverse chronological order."
+  canonicalPath="/publications/"
+>
+  <section class="stack" style="padding: 2rem 0;">
+    <h1>Publications</h1>
+    <ul class="list">
+      {sorted.map((pub) => (
+        <li class="card">
+          <p>
+            <strong>{pub.title}</strong>. {pub.authors}. <em>{pub.venue}</em>, {pub.year}.
+            {pub.url && (
+              <>
+                {' '}
+                <a href={pub.url} rel="noreferrer noopener" target="_blank">Link</a>
+              </>
+            )}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

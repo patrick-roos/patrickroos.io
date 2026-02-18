@@ -1,0 +1,21 @@
+{
+  "name": "patrick-roos-website",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "@shopify/prettier-plugin-liquid": "^1.4.0",
+    "astro": "^5.13.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  }
+}

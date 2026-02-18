@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  canonicalPath = Astro.url.pathname,
+  image = siteConfig.image
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, Astro.site);
+const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.title}`;
+const imageUrl = new URL(image, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <slot name="head" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <link rel="alternate" type="application/rss+xml" title="Patrick Roos RSS" href="/rss.xml" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="site-header">
+        <a href="/" class="name">Patrick Roos</a>
+        <nav>
+          <a href="/posts/">Posts</a>
+          <a href="/publications/">Publications</a>
+        </nav>
+      </header>
+      <slot />
+      <footer class="site-footer">
+        <p>© {new Date().getFullYear()} Patrick Roos</p>
+      </footer>
+    </main>
+  </body>
+</html>

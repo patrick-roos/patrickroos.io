@@ -1,0 +1,162 @@
+:root {
+  --bg: #f9f9f7;
+  --surface: #ffffff;
+  --text: #1b1f22;
+  --muted: #5f6b76;
+  --line: #dde2e7;
+  --link: #0b4f8a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f4f5f3 0%, #f9f9f7 100%);
+  color: var(--text);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: min(760px, calc(100% - 2rem));
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 2rem 0 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .name {
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.site-footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin: 0;
+}
+
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.post {
+  padding: 2rem 0;
+}
+
+.post-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.post-content pre {
+  overflow-x: auto;
+  background: #f3f5f7;
+  border-radius: 8px;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+}
+
+.post-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    width: 96px;
+    height: 96px;
+  }
+}

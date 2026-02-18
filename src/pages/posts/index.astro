@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Posts" description="Short essays and notes by Patrick Roos." canonicalPath="/posts/">
+  <section class="stack" style="padding: 2rem 0;">
+    <h1>Posts</h1>
+    <ul class="list">
+      {posts.map((post) => (
+        <li class="card">
+          <h2><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
+          <p class="meta">{post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</p>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
