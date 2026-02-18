@@ -17,7 +17,7 @@ const { Content } = await render(post);
   canonicalPath={`/posts/${post.slug}/`}
 >
   <article class="post stack">
-    <h1>{post.data.title}</h1>
+    <h1 class="post-page-title">{post.data.title}</h1>
     <p class="meta">{post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</p>
     <div class="post-content">
       <Content />

@@ -200,25 +200,47 @@ ul {
 }
 
 .about-title {
+  font-family: "Roboto Slab", "Roboto", serif;
   font-size: clamp(2.1rem, 5vw, 2.6rem);
   line-height: 1.1;
+  letter-spacing: 0;
+  font-weight: 400;
 }
 
 .about-title-bold {
   font-weight: 700;
 }
 
+.section-title,
+.post-card-title,
+.post-page-title {
+  font-family: "Roboto Slab", "Roboto", serif;
+  letter-spacing: 0;
+}
+
+.section-title {
+  font-weight: 500;
+}
+
+.post-card-title {
+  font-weight: 500;
+}
+
+.post-page-title {
+  font-weight: 500;
+}
+
 .hero {
   padding: 2.2rem 0 2rem;
-  display: grid;
-  grid-template-columns: 1fr 230px;
-  gap: 1.5rem;
-  align-items: start;
 }
 
 .hero-media {
-  justify-self: end;
   width: 230px;
+}
+
+.profile-float {
+  float: right;
+  margin: 0 0 1rem 1.5rem;
 }
 
 .profile-photo {
@@ -243,6 +265,10 @@ ul {
 .under-photo {
   padding-top: 0.8rem;
   justify-content: flex-end;
+}
+
+.about-flow p {
+  margin-bottom: 1rem;
 }
 
 .social-icon {
@@ -344,12 +370,12 @@ ul {
   }
 
   .hero {
-    grid-template-columns: 1fr;
+    padding-top: 1.7rem;
   }
 
-  .hero-media {
-    max-width: 230px;
-    justify-self: start;
+  .profile-float {
+    float: none;
+    margin: 0 0 1rem 0;
   }
 
   .under-photo {

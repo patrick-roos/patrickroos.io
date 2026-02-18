@@ -24,10 +24,29 @@ const personSchema = {
   </Fragment>
 
   <section class="hero">
-    <div class="stack">
-      <header class="about-header">
-        <h1 class="about-title"><span class="about-title-bold">Patrick</span> Roos</h1>
-      </header>
+    <header class="about-header">
+      <h1 class="about-title"><span class="about-title-bold">Patrick</span> Roos</h1>
+    </header>
+    <div class="about-flow">
+      <aside class="hero-media profile-float">
+        <img class="profile-photo" src="/images/patrick-roos.jpg" alt="Patrick Roos" />
+        <div class="socials under-photo">
+          <a
+            class="social-icon"
+            href="https://x.com/roosi1111"
+            rel="noreferrer noopener me"
+            target="_blank"
+            aria-label="Patrick Roos on X"
+            title="X"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M17.53 3H20.6l-6.71 7.67L21.8 21h-6.19l-4.85-6.34L5.2 21H2.13l7.18-8.21L1.7 3h6.34l4.38 5.78L17.53 3Zm-1.08 16.16h1.7L7.13 4.76H5.32l11.13 14.4Z"
+                fill="currentColor"></path>
+            </svg>
+          </a>
+        </div>
+      </aside>
       <p>
         I’m a computer scientist by training with 20+ years of experience across AI, machine
         learning, and data science. I build software and AI/ML products as an independent builder.
@@ -71,33 +90,14 @@ const personSchema = {
         competing in Muay Thai.
       </p>
     </div>
-    <div class="hero-media">
-      <img class="profile-photo" src="/images/patrick-roos.jpg" alt="Patrick Roos" />
-      <div class="socials under-photo">
-        <a
-          class="social-icon"
-          href="https://x.com/roosi1111"
-          rel="noreferrer noopener me"
-          target="_blank"
-          aria-label="Patrick Roos on X"
-          title="X"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M17.53 3H20.6l-6.71 7.67L21.8 21h-6.19l-4.85-6.34L5.2 21H2.13l7.18-8.21L1.7 3h6.34l4.38 5.78L17.53 3Zm-1.08 16.16h1.7L7.13 4.76H5.32l11.13 14.4Z"
-              fill="currentColor"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
   </section>
 
   <section class="stack" style="padding-bottom: 2rem;">
-    <h2>Posts</h2>
+    <h2 class="section-title">Posts</h2>
     <ul class="list">
       {latestPosts.map((post) => (
         <li class="card">
-          <h3><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h3>
+          <h3 class="post-card-title"><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h3>
           <p class="meta">{post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</p>
           <p>{post.data.description}</p>
         </li>
