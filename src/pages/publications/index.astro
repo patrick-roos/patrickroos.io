@@ -19,8 +19,10 @@ const sorted = publications.sort((a, b) => b.year - a.year);
             <strong>{pub.title}</strong>. {pub.authors}. <em>{pub.venue}</em>, {pub.year}.
             {pub.url && (
               <>
-                {' '}
-                <a href={pub.url} rel="noreferrer noopener" target="_blank">Link</a>
+                <br />
+                <a class="pub-link" href={pub.url} rel="noreferrer noopener" target="_blank">
+                  Read
+                </a>
               </>
             )}
           </p>

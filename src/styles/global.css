@@ -1,10 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
 :root {
-  --bg: #f9f9f7;
-  --surface: #ffffff;
-  --text: #1b1f22;
-  --muted: #5f6b76;
-  --line: #dde2e7;
-  --link: #0b4f8a;
+  --bg: #050505;
+  --surface: #101010;
+  --surface-2: #151515;
+  --text: #f6f2e9;
+  --muted: #b6ab95;
+  --line: #2a2418;
+  --gold: #d6a23d;
+  --gold-soft: #f4c96c;
 }
 
 * {
@@ -13,14 +17,17 @@
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #f4f5f3 0%, #f9f9f7 100%);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(214, 162, 61, 0.15), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(214, 162, 61, 0.1), transparent 28%),
+    var(--bg);
   color: var(--text);
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Manrope", "Avenir Next", sans-serif;
   line-height: 1.6;
 }
 
 a {
-  color: var(--link);
+  color: var(--gold-soft);
   text-decoration: none;
 }
 
@@ -29,7 +36,7 @@ a:hover {
 }
 
 .container {
-  width: min(760px, calc(100% - 2rem));
+  width: min(840px, calc(100% - 2rem));
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -40,20 +47,24 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 2rem 0 1.25rem;
+  padding: 2rem 0 1rem;
   border-bottom: 1px solid var(--line);
 }
 
 .site-header .name {
-  font-size: 1.2rem;
-  font-weight: 650;
-  letter-spacing: 0.01em;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   color: var(--text);
 }
 
 .site-header nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .site-footer {
@@ -68,11 +79,13 @@ h1,
 h2,
 h3 {
   line-height: 1.25;
+  letter-spacing: 0.01em;
 }
 
 h1 {
-  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-size: clamp(2rem, 5vw, 2.6rem);
   margin: 0;
+  font-weight: 800;
 }
 
 h2,
@@ -88,19 +101,28 @@ ul {
 }
 
 .hero {
-  padding: 2rem 0;
+  padding: 2.2rem 0 2rem;
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 210px 1fr;
+  gap: 1.5rem;
   align-items: start;
 }
 
-.hero img {
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  object-fit: cover;
+.hero-media {
+  background: linear-gradient(160deg, #141414, #0d0d0d);
   border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.65rem;
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #070707;
 }
 
 .list {
@@ -112,16 +134,23 @@ ul {
 
 .card {
   border: 1px solid var(--line);
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.1rem;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.5rem;
+  transition: border-color 140ms ease;
+}
+
+.card:hover {
+  border-color: #6a5021;
 }
 
 .meta {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.02em;
 }
 
 .post {
@@ -135,14 +164,35 @@ ul {
 
 .post-content pre {
   overflow-x: auto;
-  background: #f3f5f7;
+  background: #0c0c0c;
   border-radius: 8px;
   padding: 0.9rem;
   border: 1px solid var(--line);
 }
 
 .post-content code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.45rem;
+  width: fit-content;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid #7c5d24;
+  color: var(--gold-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.pub-link:hover {
+  text-decoration: none;
+  background: rgba(214, 162, 61, 0.11);
 }
 
 @media (max-width: 640px) {
@@ -155,8 +205,7 @@ ul {
     grid-template-columns: 1fr;
   }
 
-  .hero img {
-    width: 96px;
-    height: 96px;
+  .hero-media {
+    max-width: 220px;
   }
 }
