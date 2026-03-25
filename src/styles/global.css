@@ -258,37 +258,8 @@ ul {
   gap: 1.1rem;
 }
 
-.socials {
-  display: flex;
-}
-
-.under-photo {
-  padding-top: 0.8rem;
-  justify-content: flex-end;
-}
-
 .about-flow p {
   margin-bottom: 1rem;
-}
-
-.social-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-soft);
-  transition: color 140ms ease;
-}
-
-.social-icon svg {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-.social-icon:hover {
-  text-decoration: none;
-  color: var(--accent);
 }
 
 .card {
@@ -378,8 +349,4 @@ ul {
     margin: 0 0 1rem 0;
   }
 
-  .under-photo {
-    padding-top: 0.65rem;
-    justify-content: flex-start;
-  }
 }
