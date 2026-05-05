@@ -296,6 +296,40 @@ ul {
   gap: 1rem;
 }
 
+.post-content p,
+.post-content ul,
+.post-content ol {
+  margin: 0;
+}
+
+.post-content blockquote {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  color: var(--muted);
+  font-style: italic;
+}
+
+.post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.post-content figure {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.post-content figcaption {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .post-content pre {
   overflow-x: auto;
   background: var(--code-bg);
