@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 :root {
-  --bg: #1f1f1f;
-  --surface: #262626;
-  --surface-2: #2b2b2b;
-  --text: #ece9e2;
-  --muted: #b7b0a2;
-  --line: #3a352c;
-  --accent: #b08d57;
-  --accent-soft: #c2a272;
-  --bg-glow-1: rgba(176, 141, 87, 0.09);
-  --bg-glow-2: rgba(176, 141, 87, 0.06);
-  --hover-line: #6b5840;
-  --code-bg: #1b1b1b;
+  --bg: #141414;
+  --surface: #1a1a1a;
+  --surface-2: #202020;
+  --text: #f1ede4;
+  --muted: #c4b79f;
+  --line: #332b1d;
+  --accent: #d3a95d;
+  --accent-soft: #e2bb74;
+  --bg-glow-1: rgba(211, 169, 93, 0.11);
+  --bg-glow-2: rgba(211, 169, 93, 0.07);
+  --hover-line: #83643a;
+  --code-bg: #101010;
 }
 
 :root[data-theme="light"] {
@@ -41,8 +41,11 @@ body {
     radial-gradient(circle at 80% 0%, var(--bg-glow-2), transparent 28%),
     var(--bg);
   color: var(--text);
-  font-family: "Roboto", "Avenir Next", sans-serif;
-  line-height: 1.6;
+  font-family: "Roboto", "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.64;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -73,10 +76,10 @@ a:hover {
 .site-header nav {
   display: flex;
   gap: 1.25rem;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
 }
 
 .header-controls {
@@ -172,15 +175,15 @@ a:hover {
 h1,
 h2,
 h3 {
-  font-family: "Roboto Slab", "Roboto", serif;
-  line-height: 1.25;
-  letter-spacing: 0.01em;
+  font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.12;
+  letter-spacing: 0;
 }
 
 h1 {
   font-size: clamp(2rem, 5vw, 2.6rem);
   margin: 0;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 h2,
@@ -200,7 +203,7 @@ ul {
 }
 
 .about-title {
-  font-family: "Roboto Slab", "Roboto", serif;
+  font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif;
   font-size: clamp(2.1rem, 5vw, 2.6rem);
   line-height: 1.1;
   letter-spacing: 0;
@@ -214,7 +217,7 @@ ul {
 .section-title,
 .post-card-title,
 .post-page-title {
-  font-family: "Roboto Slab", "Roboto", serif;
+  font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif;
   letter-spacing: 0;
 }
 
